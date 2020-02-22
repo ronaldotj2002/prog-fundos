@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layout HTML</title>
     <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/foundation-icons/foundation-icons.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
   </head>
 <body>
@@ -21,36 +22,220 @@
     </div>
     
     <div class="grid-container margem-sessao-filtros">
+
       <div class="grid-x grid-padding-x">
         <div class="large-9 cell">
           <div class="callout">
-            Filtros
+            <form>
+              <div class="grid-container">
+                <div class="grid-x grid-padding-x">
+                  <div class="medium-8 cell search">
+                    
+                    <input type="text" class="input-buscar medium-12 cell" placeholder="Buscar fundo por nome">
+                    <span class="underline"></span>                    
+                    <a class="clear button secondary btn-busca" href="#">
+                        <i class="fi-magnifying-glass medium"></i>
+                    </a>
+                  
+                  </div>        
+               
+                </div>
+              </div>
+            </form>
+            <div class="row large-unstack range">
+
+              <div class="columns">
+                <div class="grid-x grid-margin-x">
+
+                  <div class="cell small-12">
+                    Aplicação mínima
+                  </div>
+
+                  <div class="cell small-12">
+                    <div class="slider" data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
+                      <span class="slider-handle" data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutputNonLinear"></span>
+                    </div>
+                  </div>
+
+                  <div class="cell small-12">
+                    <span>Até R$ <input class="range1" type="number" id="sliderOutputNonLinear"></span>
+                  </div>
+
+                </div>
+             </div>
+
+              <div class="columns">
+                <div class="grid-x grid-margin-x">
+                  
+                  <div class="cell small-12">
+                    Perfil de risco do fundo
+                  </div>
+
+                  <div class="cell small-12">
+                    <div class="slider" data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
+                      <span class="slider-handle" data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutputNonLinear2"></span>
+                    </div>
+                  </div>
+
+                  <div class="cell small-12">
+                    <span>Até R$ <input class="range1" type="number" id="sliderOutputNonLinear2"></span>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="columns">
+                <div class="grid-x grid-margin-x">
+                  
+                  <div class="cell small-12">
+                    Prazo de resgate
+                  </div>
+
+                  <div class="cell small-12">
+                    <div class="slider" data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
+                      <span class="slider-handle" data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutputNonLinear3"></span>
+                    </div>
+                  </div>
+
+                  <div class="cell small-12">
+                    <span>Até <input class="range1" type="number" id="sliderOutputNonLinear3"></span>
+                  </div>
+
+                </div>
+              </div>              
+             
+            </div>
+
+            <p>Horário limite de aplicação: 12:00</p>
           </div>
         </div>
 
         <div class="large-3 cell">
-          <div class="callout">
-            Check-box
-          </div>
+         
+            <div class="row">
+              <div class="columns">
+                <ul class="accordion" data-accordion data-allow-all-closed="true">
+              <li class="accordion-item " data-accordion-item>
+                <a href="#" class="accordion-title">RENDA FIXA</a>
+                <div class="accordion-content" data-tab-content >
+
+                  <div class="checkbox">
+                    <label for="show-password">
+                      <input type="checkbox" name="" id="show-password">
+                      <span class="custom-checkbox"><i class="icon-check"></i></span>
+                      Indexado Soberano
+                    </label>
+                  </div>
+
+                  <div class="checkbox">
+                    <label for="show-password">
+                      <input type="checkbox" name="" id="show-password">
+                      <span class="custom-checkbox"><i class="icon-check"></i></span>
+                      Renda Fixa
+                    </label>
+                  </div>
+
+                  <div class="checkbox">
+                    <label for="show-password">
+                      <input type="checkbox" name="" id="show-password">
+                      <span class="custom-checkbox"><i class="icon-check"></i></span>
+                      Renda Fixa Crédito Privado
+                    </label>
+                  </div>
+
+                  <div class="checkbox">
+                    <label for="show-password">
+                      <input type="checkbox" name="" id="show-password">
+                      <span class="custom-checkbox"><i class="icon-check"></i></span>
+                      Crédito Privado High Yield
+                    </label>
+                  </div>
+
+                  <div class="checkbox">
+                    <label for="show-password">
+                      <input type="checkbox" name="" id="show-password">
+                      <span class="custom-checkbox"><i class="icon-check"></i></span>
+                      Renda Fixa Inflação Soberano
+                    </label>
+                  </div>
+
+                  <div class="checkbox">
+                    <label for="show-password">
+                      <input type="checkbox" name="" id="show-password">
+                      <span class="custom-checkbox"><i class="icon-check"></i></span>
+                      Inflação Crédito Privado
+                    </label>
+                  </div>
+                  
+                  
+                </div>
+              </li>
+              
+            </ul>
+              </div>
+            </div>
+          
         </div>
 
         <div class="large-9 cell">
           <div class="callout">
-            Result Filtros
+             
+            <div class="row">              
+                  <table class="scroll">
+                    <thead>
+                      <tr style="background: #fff;">
+                        <th>Fundo</th>
+                        <th>Data da cota</th>
+                        <th>Mês(%)</th>
+                        <th>2016(%)</th>
+                        <th>12M</th>
+                        <th>Aplicação mínima (R$)</th>
+                        <th>Prazo do resgate</th>
+                        <th>Aplicar</th>
+                       
+                      </tr>
+                    </thead>
+                    
+                    <tr>
+                        
+                      <td>RENDA FIXA </td>
+                                            
+                    </tr>
+                    <tbody>
+                      <tr>
+                        
+                        <td>These are all the words that </td>
+                        <td>Cool</td>
+                        <td>Swag</td>
+                        <td>Chill</td>
+                        <td>Killer</td>
+                        <td>Rad</td>
+                        <td>Baller</td>
+                        <td>OMG</td>                        
+                      </tr>
+                      
+                    </tbody>
+              
+                  </table>
+                
+            </div>
           </div>
         </div>
 
         <div class="large-4 cell">
           <div class="callout">
-            Legenda
+            <p>LEGENDA</p>
+            <ul>
+              <li>Fundo para investidor qualificado</li>
+              <li>Você já investe neste fundo</li>
+              <li>Entenda o resgate deste fundo</li>
+              <li>Fundo fechado para aplicação</li>
+              <li>Aplicar neste fundo</li>
+            </ul>
           </div>
         </div>
       </div>   
 
-    
-
-
-     
     </div>
 
     
