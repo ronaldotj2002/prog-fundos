@@ -26,7 +26,7 @@ $fieldset-border: 1px solid #999;
 }
 
 .bg-header {
-  @include replace-text(url("../img/bg-header.png"));
+  @include replace-text(url("../assets/img/bg-header.png"));
   height: 327px;
   color: $cor-branca;
   text-align: center;
