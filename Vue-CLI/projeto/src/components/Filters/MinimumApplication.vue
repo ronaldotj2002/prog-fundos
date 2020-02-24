@@ -21,6 +21,8 @@
 </template>
 
 <script>
+
+import  '../../assets/js/app.js';
 export default {
 
   

@@ -32,8 +32,8 @@
                         <td>2,93</td>
                         <td>13,16</td>
                         <td>1.000,00</td>
-                        <td>icon</td>
-                        <td>icon</td>                        
+                        <td><i class="fi-info"></i></td>
+                        <td><i class="fi-info"></i></td>                        
                       </tr>
                       
                     </tbody>

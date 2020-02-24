@@ -3,15 +3,15 @@
           <div class="callout">
             <p>LEGENDA</p>
             <ul>
-              <li>Fundo para investidor qualificado</li>
-              <li>Você já investe neste fundo</li>
-              <li>Entenda o resgate deste fundo</li>
-              <li>Fundo fechado para aplicação</li>
-              <li>Aplicar neste fundo</li>
+              <li><i class="fi-star molde"></i> Fundo para investidor qualificado</li>
+              <li><i class="fi-check molde"></i> Você já investe neste fundo</li>
+              <li><i class="fi-info"></i>  Entenda o resgate deste fundo</li>
+              <li><i class="fi-prohibited"></i> Fundo fechado para aplicação</li>
+              <li><i class="fi-info"></i> Aplicar neste fundo</li>
             </ul>
           </div>
         </div>
-</template>
+</template> 
 
 <script>
 export default {
