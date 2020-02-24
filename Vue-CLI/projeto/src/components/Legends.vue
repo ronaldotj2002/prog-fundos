@@ -7,7 +7,7 @@
               <li><i class="fi-check molde"></i> Você já investe neste fundo</li>
               <li><i class="fi-info"></i>  Entenda o resgate deste fundo</li>
               <li><i class="fi-prohibited"></i> Fundo fechado para aplicação</li>
-              <li><i class="fi-info"></i> Aplicar neste fundo</li>
+              <li><i class="fi-info"></i> Ronaldo neste fundo</li>
             </ul>
           </div>
         </div>
