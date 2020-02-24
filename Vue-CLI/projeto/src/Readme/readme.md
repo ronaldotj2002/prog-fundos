@@ -1,4 +1,5 @@
 # Projeto
+    Vue + Foundation + Quasar
 
 # Instalando as dependências
     npm i

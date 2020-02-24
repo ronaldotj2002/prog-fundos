@@ -2,10 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
-import  './assets/js/app.js';
+// import  './assets/js/app.js';
 // import './registerServiceWorker'
 import VueResorce from 'vue-resource';
-import 'script-loader!jquery/dist/jquery.min';
+// import 'script-loader!jquery/dist/jquery.min';
+import './quasar'
 // import 'script-loader!what-input/dist/what-input.min';
 // import 'script-loader!foundation-sites/dist/js/foundation.min';
 

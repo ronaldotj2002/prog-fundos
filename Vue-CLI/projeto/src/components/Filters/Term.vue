@@ -1,28 +1,40 @@
-<template>
-  <div class="columns">
-       <div class="grid-x grid-margin-x">
-                  
-         <div class="cell small-12">
-           Prazo de resgate
-         </div>
 
-         <div class="cell small-12">
+ <template>
+
+  <div class="columns">
+      <div class="grid-x grid-margin-x q-pa-md">
+
+        <div class="cell small-12">
+          Prazo de resgate
+       </div>
+
+       <div class="cell small-12">
            <div class="slider" data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
-             <span class="slider-handle" data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutputNonLinear3"></span>
+             <q-slider v-model="standard" :min="1" :max="31"/> 
            </div>
          </div>
+        
+         
 
-         <div class="cell small-12">
-           <span>Até <input class="range1" type="number" id="sliderOutputNonLinear3"></span>
+        <div class="cell small-12">
+           <span v-if="standard <= 1">Até {{ standard }} dia </span>
+           <span v-else>Até {{ standard }} dias </span>           
          </div>
 
-       </div>
+
+     </div>
   </div> 
+  
+  
 </template>
 
 <script>
 export default {
-
+  data () {
+    return {
+      standard: 0
+    }
+  }
 }
 </script>
 

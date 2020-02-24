@@ -3,7 +3,7 @@
     <div class="row">
         <div class="columns">
           <ul class="accordion" data-accordion data-allow-all-closed="true">
-              <li class="accordion-item " data-accordion-item>
+          <li class="accordion-item " data-accordion-item>
                   <a href="#" class="accordion-title">RENDA FIXA</a>
                     <div class="accordion-content" data-tab-content >
 

@@ -10000,7 +10000,7 @@ function (_Plugin) {
           prev_val,
           next_val;
 
-      if (!!$handle) {
+      if ($handle) {
         val = parseFloat($handle.attr('aria-valuenow'));
       } else {
         val = value;
@@ -15080,7 +15080,7 @@ Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
     return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
   }
 
-  ;
+  
   var rsingleTag = /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i; // Implement the identical functionality for filter and not
 
   function winnow(elements, qualifier, not) {
@@ -22235,7 +22235,7 @@ module.exports = function (module) {
   );
 });
 
-;
+
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
 
 /***/ }),
