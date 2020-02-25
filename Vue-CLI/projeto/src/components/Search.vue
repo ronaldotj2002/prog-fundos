@@ -4,58 +4,56 @@
               
                 <div class="grid-container">
                     <div class="grid-x grid-padding-x">
-                    <div class="medium-8 cell search">
-                        
-                        <!-- <input type="text" class="input-buscar medium-12 cell" placeholder="Buscar fundo por nome"> -->
-                        <!-- <span class="underline"></span>                     -->
+                    <div class="medium-8 cell search">                  
                         <q-input v-model="nome" label="Buscar fundo por nome" />
                         <a class="clear button secondary btn-busca" href="#">
                             <i class="fas fa-search"></i>
                         </a>
-                    </div> 
-                   
+                    </div>                    
                      
                     </div>
                 </div>
                 
                 <div class="row large-unstack range">
 
-                <range-um />
+                    <range-um />
 
-                <range-dois />
+                    <range-dois />
 
-                <range-tres />                          
+                    <range-tres />                          
                 
                 </div>
 
                 <p>Horário limite de aplicação: 12:00</p>
-          
+                        
             </div>
-       
+   
     </div>
 </template>
-
 <script>
+
+
   import MinimumApplication from  './Filters/MinimumApplication';
   import RiskProfile        from  './Filters/RiskProfile';
   import Term               from  './Filters/Term';
- 
-  
 
 export default {
-
     data () {
         return {
-            nome: ''
+            fund_detail_full: [],
+            nome: '',
+
         }
     },
-  
+      
   components: {
       'range-um'   : MinimumApplication,
       'range-dois' : RiskProfile,
       'range-tres' : Term
   },
+
 }
+
 </script>
 
 <style scoped lang="scss">

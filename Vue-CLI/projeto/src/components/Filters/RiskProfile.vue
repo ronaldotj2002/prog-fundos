@@ -9,18 +9,16 @@
 
       <div class="cell small-12">
            <div class="slider" data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
-             <q-slider v-model="greenModel" color="green" markers snap :min="1" :max="12"/>
+             <q-slider v-model="risk" color="green" markers snap :min="1" :max="12"/>
            </div>
       </div>
       
       <div class="cell small-12">
-           <span> {{ greenModel }}</span>
-         </div>
-  
+           <span> {{ risk }}</span>
+         </div>  
 
     </div>
   </div> 
-
  
 </template>
 
@@ -29,7 +27,7 @@
 export default {
   data () {
     return {
-      greenModel: 1
+      risk: 1
     }
   }
 }

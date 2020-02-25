@@ -5,15 +5,14 @@
 
     <div class="grid-container margem-sessao-filtros">
 
-      <div class="grid-x grid-padding-x">
-    
+      <div class="grid-x grid-padding-x">    
         
         <div class="large-9 cell">
             <Search />            
         </div>        
         
         <div class="large-3 cell" style="float:right">
-        <check-box />
+          <check-box />
         </div>
 
         <div class="large-9 cell" style="float:left">          
@@ -28,7 +27,6 @@
       </div>
 
     </div>
-
             
            
   </div>

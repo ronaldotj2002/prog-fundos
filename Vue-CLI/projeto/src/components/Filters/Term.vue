@@ -12,19 +12,15 @@
            <div class="slider" data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
              <q-slider v-model="qtdDia" :min="1" :max="31"/> 
            </div>
-         </div>
-        
+         </div>       
          
-
         <div class="cell small-12">
            <span v-if="qtdDia <= 1">Até {{ qtdDia }} dia </span>
            <span v-else>Até {{ qtdDia }} dias </span>           
          </div>
 
-
      </div>
-  </div> 
-  
+  </div>   
   
 </template>
 
