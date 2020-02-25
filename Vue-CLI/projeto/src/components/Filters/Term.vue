@@ -10,15 +10,15 @@
 
        <div class="cell small-12">
            <div class="slider" data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
-             <q-slider v-model="standard" :min="1" :max="31"/> 
+             <q-slider v-model="qtdDia" :min="1" :max="31"/> 
            </div>
          </div>
         
          
 
         <div class="cell small-12">
-           <span v-if="standard <= 1">Até {{ standard }} dia </span>
-           <span v-else>Até {{ standard }} dias </span>           
+           <span v-if="qtdDia <= 1">Até {{ qtdDia }} dia </span>
+           <span v-else>Até {{ qtdDia }} dias </span>           
          </div>
 
 
@@ -32,7 +32,7 @@
 export default {
   data () {
     return {
-      standard: 0
+      qtdDia: 0
     }
   }
 }

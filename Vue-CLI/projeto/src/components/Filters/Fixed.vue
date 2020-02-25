@@ -1,77 +1,116 @@
 <template>
-  <div>         
-    <div class="row">
-        <div class="columns">
-          <ul class="accordion" data-accordion data-allow-all-closed="true">
-          <li class="accordion-item " data-accordion-item>
-                  <a href="#" class="accordion-title">RENDA FIXA</a>
-                    <div class="accordion-content" data-tab-content >
+   <div class="row">
+     <div class="columns">              
+        <q-list bordered class="rounded-borders">          
+          <q-expansion-item >
+            <template v-slot:header class="slot">             
+              <q-item-section>
+                RENDA FIXA
+              </q-item-section>
+            </template>
 
-                      <div class="checkbox">
-                        <label for="show-password">
-                          <input type="checkbox" name="" id="show-password">
-                          <span class="custom-checkbox"><i class="icon-check"></i></span>
-                          Indexado Soberano
-                        </label>
-                      </div>
-
-                      <div class="checkbox">
-                        <label for="show-password">
-                          <input type="checkbox" name="" id="show-password">
-                          <span class="custom-checkbox"><i class="icon-check"></i></span>
-                          Renda Fixa
-                        </label>
-                      </div>
-
-                      <div class="checkbox">
-                        <label for="show-password">
-                          <input type="checkbox" name="" id="show-password">
-                          <span class="custom-checkbox"><i class="icon-check"></i></span>
-                          Renda Fixa Crédito Privado
-                        </label>
-                      </div>
-
-                      <div class="checkbox">
-                        <label for="show-password">
-                          <input type="checkbox" name="" id="show-password">
-                          <span class="custom-checkbox"><i class="icon-check"></i></span>
-                          Crédito Privado High Yield
-                        </label>
-                      </div>
-
-                      <div class="checkbox">
-                        <label for="show-password">
-                          <input type="checkbox" name="" id="show-password">
-                          <span class="custom-checkbox"><i class="icon-check"></i></span>
-                          Renda Fixa Inflação Soberano
-                        </label>
-                      </div>
-
-                      <div class="checkbox">
-                        <label for="show-password">
-                          <input type="checkbox" name="" id="show-password">
-                          <span class="custom-checkbox"><i class="icon-check"></i></span>
-                          Inflação Crédito Privado
-                        </label>
-                      </div>
-                  
-                  
+            <q-card>
+              <q-card-section>
+               
+                  <div class="border-check">
+                    <div class="checkbox">                    
+                      <q-checkbox dense v-model="RendaFixa" label="Renda Fixa" color="cyan" />  
                     </div>
-                  </li>
-              
-                </ul>
-             </div>
-          </div>
-          
-        </div>
+                  </div>
+              </q-card-section>
+            </q-card>
+            <q-card>
+              <q-card-section>
+                <div class="border-check">
+                  <div class="checkbox">                   
+                      <q-checkbox dense v-model="IndexadoSoberano" label="Indexado Soberano" color="cyan" />                      
+                  </div>
+                </div>
+              </q-card-section>
+            </q-card>
+            <q-card>
+              <q-card-section>
+                <div class="border-check">
+                  <div class="checkbox">                   
+                    <q-checkbox dense v-model="RendaFixaCreditoPrivado" label="Renda Fixa Crédito Privado" color="cyan" /> 
+                  </div>
+                </div>
+              </q-card-section>
+            </q-card>
+            <q-card>
+              <q-card-section>
+                <div class="border-check">
+                  <div class="checkbox">                    
+                    <q-checkbox dense v-model="CreditoPrivadoHighYield" label="Crédito Privado High Yield" color="cyan" /> 
+                  </div>
+                </div>
+              </q-card-section>
+            </q-card>
+            <q-card>
+              <q-card-section>
+                <div class="border-check">
+                  <div class="checkbox">                   
+                    <q-checkbox dense v-model="RendaFixaInflacaoSoberano" label="Renda Fixa Inflação Soberano" color="cyan" />
+                  </div>
+                </div>
+              </q-card-section>
+            </q-card>
+            <q-card>
+              <q-card-section>
+                <div class="border-check">
+                  <div class="checkbox">                    
+                    <q-checkbox dense v-model="InflacaoCreditoPrivado" label="Inflação Crédito Privado" color="cyan" />
+                  </div>
+                </div>
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
+
+        </q-list>
+    </div>
+  </div>          
 </template>
+
+
 
 <script>
 export default {
-
+  data () {
+    return {      
+      RendaFixa:                 false,
+      IndexadoSoberano:          false,
+      RendaFixaCreditoPrivado:   false,
+      CreditoPrivadoHighYield:   false,
+      RendaFixaInflacaoSoberano: false,
+      InflacaoCreditoPrivado:    false
+    }
+  }
 }
 </script>
 
-<style>
+<style lang="scss">
+
+.row .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.checkbox {
+  margin: 0 0 1em 0;  
+}
+
+.border-check{
+  border-bottom: 1px solid #999;
+}
+
+.q-item {
+    position: initial !important;
+}
+.q-card > div {
+    border-left: 0;
+    border-right: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding-left: 2em;
+}
 
 </style>

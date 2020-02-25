@@ -1,22 +1,23 @@
 <template>
     <div>        
           <div class="callout">
-                <form>
+              
                 <div class="grid-container">
                     <div class="grid-x grid-padding-x">
                     <div class="medium-8 cell search">
                         
-                        <input type="text" class="input-buscar medium-12 cell" placeholder="Buscar fundo por nome">
-                        <span class="underline"></span>                    
+                        <!-- <input type="text" class="input-buscar medium-12 cell" placeholder="Buscar fundo por nome"> -->
+                        <!-- <span class="underline"></span>                     -->
+                        <q-input v-model="nome" label="Buscar fundo por nome" />
                         <a class="clear button secondary btn-busca" href="#">
-                            <i class="fi-magnifying-glass medium"></i>
+                            <i class="fas fa-search"></i>
                         </a>
-                    
-                    </div>        
-                
+                    </div> 
+                   
+                     
                     </div>
                 </div>
-                </form>
+                
                 <div class="row large-unstack range">
 
                 <range-um />
@@ -42,6 +43,12 @@
   
 
 export default {
+
+    data () {
+        return {
+            nome: ''
+        }
+    },
   
   components: {
       'range-um'   : MinimumApplication,
@@ -53,4 +60,19 @@ export default {
 
 <style scoped lang="scss">
 
+.row .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.btn-busca{
+    margin-top: 2em;
+}
+
+@media screen and (min-width: 40em){
+
+.row .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+}
 </style>

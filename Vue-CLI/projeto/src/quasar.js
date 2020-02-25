@@ -3,6 +3,9 @@ import Vue from 'vue'
 import './styles/quasar.scss'
 import iconSet from 'quasar/icon-set/fontawesome-v5.js'
 import '@quasar/extras/fontawesome-v5/fontawesome-v5.css'
+import './assets/css/app.css';
+
+
 import {
   Quasar, 
   QSlider,
@@ -19,6 +22,11 @@ import {
   QItem,
   QItemSection,
   QItemLabel,
+  QExpansionItem,
+  QCard,
+  QCardSection,
+  QCheckbox,
+  QInput,
 
 } from 'quasar'
 
@@ -38,7 +46,12 @@ Vue.use(Quasar, {
     QList,
     QItem,
     QItemSection,
-    QItemLabel
+    QItemLabel,
+    QExpansionItem,
+    QCard,
+    QCardSection,
+    QCheckbox,
+    QInput
   },
   directives: {
   },
