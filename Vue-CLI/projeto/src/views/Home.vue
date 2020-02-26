@@ -44,10 +44,11 @@ export default {
     'check-box' : Fixed,
     Legends
 
-  }
+  },
+
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
  
 </style>

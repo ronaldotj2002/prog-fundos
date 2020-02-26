@@ -68,6 +68,7 @@
 
         </q-list>
     </div>
+   
   </div>          
 </template>
 
@@ -76,6 +77,7 @@
 <script>
 export default {
   data () {
+
     return {      
       RendaFixa:                 false,
       IndexadoSoberano:          false,
@@ -84,7 +86,10 @@ export default {
       RendaFixaInflacaoSoberano: false,
       InflacaoCreditoPrivado:    false
     }
-  }
+  },
+
+
+ 
 }
 </script>
 
