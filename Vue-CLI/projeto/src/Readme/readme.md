@@ -13,7 +13,7 @@
 
         Legends                 (Legendas)
 
-        Search                  (Busca + Filters)
+        Search                  (Busca + Filters e Result )
 
         Filters
             Fixed              (Check box - Renda Fixa)
@@ -21,5 +21,3 @@
             RiskProfile        (Range - Perfil de risco de fundo)
             Term               (Prazo de resgate)
 
-        Results
-            Result              (Resultado de Busca e filtros)

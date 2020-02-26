@@ -15,11 +15,6 @@
           <check-box />
         </div>
 
-        <div class="large-9 cell" style="float:left">          
-          <Result />
-        </div> 
-
-
         <div class="large-4 cell">
           <Legends />
         </div>  
@@ -38,7 +33,6 @@ import '../assets/js/app.js';
 import Header  from '@/components/Header.vue';
 import Search  from '@/components/Search.vue';
 import Fixed   from '@/components/Filters/Fixed.vue';
-import Result  from '@/components/Results/Result.vue'
 import Legends from '@/components/Legends.vue'
 
 
@@ -48,7 +42,6 @@ export default {
     Header,
     Search,
     'check-box' : Fixed,
-    Result,
     Legends
 
   }
