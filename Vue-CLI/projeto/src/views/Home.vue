@@ -34,141 +34,74 @@
                 </form>
                 <div class="row large-unstack range">
 
-                <div class="columns">
-                  <div class="grid-x grid-margin-x">
+                    <div class="columns">
+                      <div class="grid-x grid-margin-x">
 
-                    <div class="cell small-12">
-                        Aplicação mínima
-                    </div>
-
-                    <div class="cell small-12">
-                      <div class="slider" data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
-                        <input type="range" v-model="minimumAp" :min="0" :max="2000000">
-                      </div>
-                    </div>
-
-                    <div class="cell small-12">
-                      <span>Até R$ {{minimumAp }}</span>
-                    </div>
-
-                  </div>
-                </div>
-
-                <div class="columns">
-                  <div class="grid-x grid-margin-x">
-                                
-                      <div class="cell small-12">
-                        Perfil de risco do fundo
-                      </div>
-
-                      <div class="cell small-12">
-                        <div class="slider" data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
-                           <input type="range" v-model="risk" :min="1" :max="12">
+                        <div class="cell small-12">
+                            Aplicação mínima
                         </div>
-                      </div>
 
-                      <div class="cell small-12">
-                        <span>Até R$ {{ risk }}</span>
-                      </div>
-
-                  </div>
-              </div>
-
-              <div class="columns">
-                  <div class="grid-x grid-margin-x">
-                              
-                      <div class="cell small-12">
-                        Prazo de resgate
-                      </div>
-
-                      <div class="cell small-12">
-                        <div class="slider" data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
-                          <input type="range" v-model="qtdDia" :min="1" :max="31">
+                        <div class="cell small-12">
+                          <div class="slider" data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
+                            <input type="range"  v-on:input="buscaRange = $event.target.value" v-model="minimumAp" :max="10000">
+                       
+                          </div>
                         </div>
-                      </div>
 
-                      <div class="cell small-12">
-                        <span v-if="qtdDia <= 1">Até {{ qtdDia }} dia </span>
-                        <span v-else>Até {{ qtdDia }} dias </span> 
-                      </div>
+                        <div class="cell small-12">
+                          <span>Até R$ {{minimumAp }}</span>
+                        </div>
 
-                  </div>
-              </div> 
+                      </div>
+                    </div>
+
+                    <div class="columns">
+                      <div class="grid-x grid-margin-x">
+                                    
+                          <div class="cell small-12">
+                            Perfil de risco do fundo
+                          </div>
+
+                          <div class="cell small-12">
+                            <div class="slider" data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
+                              <input type="range" v-model="risk" :min="1" :max="12">
+                            </div>
+                          </div>
+
+                          <div class="cell small-12">
+                            <span>Até R$ {{ risk }}</span>
+                          </div>
+
+                      </div>
+                    </div>
+
+                    <div class="columns">
+                      <div class="grid-x grid-margin-x">
+                                  
+                          <div class="cell small-12">
+                            Prazo de resgate
+                          </div>
+
+                          <div class="cell small-12">
+                            <div class="slider" data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
+                              <input type="range" v-model="qtdDia" :min="1" :max="31">
+                            </div>
+                          </div>
+
+                          <div class="cell small-12">
+                            <span v-if="qtdDia <= 1">Até {{ qtdDia }} dia </span>
+                            <span v-else>Até {{ qtdDia }} dias </span> 
+                          </div>
+
+                      </div>
+                    </div> 
 
                 </div>
 
                 <p>Horário limite de aplicação: 12:00</p>
           
             </div>
-        </div>
-
-        <div class="large-3 cell">
-          <div class="row">
-        <div class="columns">
-          <ul class="accordion" data-accordion data-allow-all-closed="true">
-              <li class="accordion-item " data-accordion-item>
-                  <a href="#" class="accordion-title">RENDA FIXA</a>
-                    <div class="accordion-content" data-tab-content >
-
-                      <div class="checkbox">
-                        <label for="show-password">
-                          <input type="checkbox" name="" id="show-password">
-                          <span class="custom-checkbox"><i class="icon-check"></i></span>
-                          Indexado Soberano
-                        </label>
-                      </div>
-
-                      <div class="checkbox">
-                        <label for="show-password">
-                          <input type="checkbox" name="" id="show-password">
-                          <span class="custom-checkbox"><i class="icon-check"></i></span>
-                          Renda Fixa
-                        </label>
-                      </div>
-
-                      <div class="checkbox">
-                        <label for="show-password">
-                          <input type="checkbox" name="" id="show-password">
-                          <span class="custom-checkbox"><i class="icon-check"></i></span>
-                          Renda Fixa Crédito Privado
-                        </label>
-                      </div>
-
-                      <div class="checkbox">
-                        <label for="show-password">
-                          <input type="checkbox" name="" id="show-password">
-                          <span class="custom-checkbox"><i class="icon-check"></i></span>
-                          Crédito Privado High Yield
-                        </label>
-                      </div>
-
-                      <div class="checkbox">
-                        <label for="show-password">
-                          <input type="checkbox" name="" id="show-password">
-                          <span class="custom-checkbox"><i class="icon-check"></i></span>
-                          Renda Fixa Inflação Soberano
-                        </label>
-                      </div>
-
-                      <div class="checkbox">
-                        <label for="show-password">
-                          <input type="checkbox" name="" id="show-password">
-                          <span class="custom-checkbox"><i class="icon-check"></i></span>
-                          Inflação Crédito Privado
-                        </label>
-                      </div>
-                  
-                  
-                    </div>
-                  </li>
-              
-                </ul>
-             </div>
-          </div>
-        </div>  
-
-        <div class="large-9 cell">
-          <div class="callout">
+            <div class="callout">
              
             <div class="row">              
                   <table class="scroll">
@@ -241,8 +174,58 @@
                 
             </div>
           </div>
-        </div>   
+        </div>
 
+        <div class="large-3 cell">
+          <div class="row">
+        <div class="columns">
+            <div class="callout" >
+                  <p @click="rendaFixaShow=!rendaFixaShow" > Renda fixa</p>
+                   
+                      <div class="checkbox" v-for="(itemCheck, indice) in resultBusca" :key="indice" v-show="rendaFixaShow">
+                        <label for="show-password" v-if="itemCheck.specification.fund_main_strategy.fund_macro_strategy === 1">
+                          <input type="checkbox" v-model="check" :value="itemCheck.specification.fund_main_strategy.name" v-on:input="busca = $event.target.value">     
+                                             
+                          {{ itemCheck.specification.fund_main_strategy.name }}
+                         
+                        </label>
+                      
+                      </div>
+
+                </div>
+
+                <div class="callout" >
+                  <p @click="estrategiaShow=!estrategiaShow" >Estratégias diferenciadas</p>
+                   
+                      <div class="checkbox" v-for="(itemCheck, indice) in resultBusca" :key="indice" v-show="estrategiaShow">
+                        <label for="show-password" v-if="itemCheck.specification.fund_main_strategy.fund_macro_strategy === 2">
+                          <input type="checkbox" v-model="check" :value="itemCheck.specification.fund_main_strategy.name">                          
+                          {{ itemCheck.specification.fund_main_strategy.name }}
+                         
+                        </label>
+                        
+                      </div>
+                
+                </div>
+
+                <div class="callout" >
+                  <p @click="rendaVariavelShow=!rendaVariavelShow" >Renda variável</p>
+                   
+                      <div class="checkbox" v-for="(itemCheck, indice) in resultBusca" :key="indice" v-show="rendaVariavelShow">
+                        <label for="show-password" v-if="itemCheck.specification.fund_main_strategy.fund_macro_strategy === 3">
+                          <input type="checkbox" v-model="check" :value="itemCheck.specification.fund_main_strategy.name">                          
+                          {{ itemCheck.specification.fund_main_strategy.name }}
+                         
+                        </label>
+                       
+                      </div>               
+
+                </div>
+
+             </div>
+          </div>
+        </div>  
+ 
         <div class="large-4 cell">
           <div class="callout">
             <p>LEGENDA</p>
@@ -259,8 +242,7 @@
       </div>
 
     </div>
-
-            
+   
            
   </div>
 </template>
@@ -273,16 +255,24 @@ export default {
   name: 'Home',  
 
   data () {
-        
+    
         return {
             fund_detail_full  : [],
             busca             : '',
+            itemCheck         : '',
             minimumAp         : 0,
             risk              : 0,
-            qtdDia            : 0
+            qtdDia            : 0,
+            check             : [],
+            rendaFixaShow     : false,
+            estrategiaShow    : false,
+            rendaVariavelShow : false,
+            events            : []
                       
         }
-    },    
+        
+    },
+
     
   created() {
         
@@ -291,6 +281,7 @@ export default {
             .then(fund_detail_full => this.fund_detail_full = fund_detail_full, err => console.log(err));
             },
 
+            
     computed: {
 
         resultBusca() {
@@ -300,26 +291,30 @@ export default {
                 return this.fund_detail_full.filter(fund_detail_full => exp.test(fund_detail_full.full_name));
             } else {
                 return this.fund_detail_full;
-            }
+            }            
 
         },
 
-        resultMinApplication() {
-          
-          if(this.minimumAp) {
-              let minrange = (this.minimumAp);
-              return this.fund_detail_full.find(fund_detail_full => minrange.test(fund_detail_full.operability.minimum_initial_application_amount));
-          } else {
-            return this.fund_detail_full;
-          }
-        }
-    },
+        filtroBusca() {
 
+            if(this.filtro) {
+                let exp = new RegExp(this.filtro);
+                return this.fund_detail_full.filter(fund_detail_full => exp.test(fund_detail_full.full_name));
+            } else {
+                return this.fund_detail_full;
+            }            
+
+        },
+    
+    },
 
 }
 </script>
 
 <style scoped>
-  
+
+  tbody th, tbody td {
+    padding: 0.5rem 0;
+}  
 
 </style>
