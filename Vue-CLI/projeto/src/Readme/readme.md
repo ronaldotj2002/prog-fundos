@@ -6,19 +6,22 @@
 # Iniciar o projeto
     npm run serve
 
-# Componentes
-    components
-        Header                  (Header - Título)
 
-        Legends                 (Legendas)
+# Erros
 
-        Search                  (Busca + Filters)
+    code ELIFECYCLE
 
-        Filters
-            Fixed              (Check box - Renda Fixa)
-            MinimumApplication (Range - Aplicação mínima)
-            RiskProfile        (Range - Perfil de risco de fundo)
-            Term               (Prazo de resgate)
+    1º passo : sudo npm cache clean -f
+    2º passo : sudo npm install -g n install n
+    3º passo : sudo n stable upgrade 
 
-        Results
-            Result              (Resultado de Busca e filtros)
+# ##################################################### #
+
+
+# Vuejs
+    https://br.vuejs.org/
+
+# Chart
+    https://www.yasminzy.com/vue/chart.html#steps
+
+
