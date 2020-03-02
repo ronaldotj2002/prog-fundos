@@ -15,8 +15,7 @@
       <div class="grid-x grid-padding-x">
     
         <div class="large-9 cell">
-            <div class="callout">
-                <form>
+            <div class="callout">                
                 <div class="grid-container">
                     <div class="grid-x grid-padding-x">
                     <div class="medium-8 cell search">
@@ -31,7 +30,7 @@
                 
                     </div>
                 </div>
-                </form>
+               
                 <div class="row large-unstack range">
 
                     <div class="columns">
@@ -42,14 +41,14 @@
                         </div>
 
                         <div class="cell small-12">
-                          <div class="slider" data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
-                            <input type="range"  v-on:input="buscaRange = $event.target.value" v-model="minimumAp" :max="10000">
+                          <div  data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
+                            <input type="range" step="100" class="slider"  @change="filtroValorMinimo($event.target.value)" v-model="minimumAp" max="25000">
                        
                           </div>
                         </div>
 
                         <div class="cell small-12">
-                          <span>Até R$ {{minimumAp }}</span>
+                          <span>Até R$ {{ minimumAp }}</span>
                         </div>
 
                       </div>
@@ -63,15 +62,27 @@
                           </div>
 
                           <div class="cell small-12">
-                            <div class="slider" data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
-                              <input type="range" v-model="risk" :min="1" :max="12">
+                            <div data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
+                              
+                              <span class="risk1 marg"></span>
+                              <span class="risk2 marg"></span>
+                              <span class="risk3 marg"></span>
+                              <span class="risk4 marg"></span>
+                              <span class="risk5 marg"></span>
+                              <span class="risk6 marg"></span>
+                              <span class="risk7 marg"></span>
+                              <span class="risk8 marg"></span>
+                              <span class="risk9 marg"></span>
+                              <span class="risk10 marg"></span>
+                              <span class="risk11 marg"></span>
+                              <span class="risk12 marg"></span>
+                              <input type="range" class="risk" @change="filtroRisk($event.target.value)" v-model="risk" :min="1" :max="12">
+                              <span>menor</span>
+                              <span style="float: right">maior</span>
+                              
                             </div>
                           </div>
-
-                          <div class="cell small-12">
-                            <span>Até R$ {{ risk }}</span>
-                          </div>
-
+                       
                       </div>
                     </div>
 
@@ -83,14 +94,14 @@
                           </div>
 
                           <div class="cell small-12">
-                            <div class="slider" data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
-                              <input type="range" v-model="qtdDia" :min="1" :max="31">
+                            <div data-slider data-initial-start="0" data-step="1" data-position-value-function="log" data-non-linear-base="5">
+                              <input type="range" step="10" class="slider" @change="filtroPrazo($event.target.value)"  v-model="qtdDia" max="270">
                             </div>
                           </div>
 
                           <div class="cell small-12">
-                            <span v-if="qtdDia <= 1">Até {{ qtdDia }} dia </span>
-                            <span v-else>Até {{ qtdDia }} dias </span> 
+                            <span v-if="qtdDia <= 1" style="float:right">Até {{ qtdDia }} dia </span>
+                            <span v-else style="float:right">Até {{ qtdDia }} dias </span> 
                           </div>
 
                       </div>
@@ -98,7 +109,7 @@
 
                 </div>
 
-                <p>Horário limite de aplicação: 12:00</p>
+                <p class="hr-limite">Horário limite de aplicação: 12:00</p>
           
             </div>
             <div class="callout">
@@ -136,9 +147,9 @@
                         </tr>
                     </tbody>
                       
-                      <tbody>
+                      <tbody  v-for="(item, indice) in resultBusca" :key="item.fund_detail_full" @click="detalheShow=indice">
                       
-                        <tr v-for="item in resultBusca" :key="item.fund_detail_full">
+                        <tr>
                           
                           <td class="border-risk_1"  v-if="item.specification.fund_risk_profile.score_range_order === 1"></td>
                           <td class="border-risk_2"  v-if="item.specification.fund_risk_profile.score_range_order === 2"></td>
@@ -154,24 +165,52 @@
                           <td class="border-risk_12" v-if="item.specification.fund_risk_profile.score_range_order === 12"></td>
                           <td>                            
                                 {{item.full_name}} 
-                                <i class="fi-star molde"></i> 
-                                <i class="fi-check molde"></i> 
+                                <i class="fi-star molde" data-tooltip tabindex="1" title="Fundo para investidor qualificado" data-position="top" data-alignment="center"></i> 
+                                <i class="fi-check molde" data-tooltip tabindex="1" title="Vovê já Investe neste fundo" data-position="top" data-alignment="center" style="margin-left:5px"></i> 
                                 <br> 
                                 <span class="sub-text">{{item.specification.fund_macro_strategy.name}} | {{item.specification.fund_class}}</span>
                           </td>
-                          <td width="80">{{item.quota_date}}</td>
+                          <td width="80">{{item.quota_date | moment("DD/MM/YYYY")}}</td>
                           <td>{{item.profitabilities.month}}</td>
                           <td>{{item.profitabilities.year}}</td>
                           <td>{{item.profitabilities.m12}}</td>
                           <td>{{item.operability.minimum_initial_application_amount}}</td>
-                          <td><i class="fi-info"></i></td>
-                          <td><i class="fi-info"></i></td>                       
+                          <td>{{item.operability.retrieval_quotation_days_str}}</td>
+                          <td data-tooltip tabindex="1" title="Aplicar neste fundo" data-position="top" data-alignment="center"><img src="../assets/img/back.png" width="20px" style="transform: rotate(90deg);" /></td>  
+                                               
+                        </tr>
+
+                        <tr v-show="detalheShow == indice" width="100%" style=" padding:30px 0">
+                       
+                           <td colspan="6">
+                             
+                               <div class="card-img-bottom">
+                                <chartjs-doughnut
+                                  :bind="true"                                  
+                                  :datasets="datasets"
+                                  :labels="labels"
+                                  :cotizacao="item.operability.application_quotation_days_str"
+                                  :option="option"
+                                />
+                                                          
+                              </div>
+                             
+                           </td>
+
+                           <td colspan="3">
+                             <p>Cotização da aplicação: {{item.operability.application_quotation_days_str}}</p>
+                             <p>Cotização do resgate: {{item.operability.retrieval_quotation_days_str}}</p>
+                             <p>Liquidação do resgate: {{item.operability.retrieval_liquidation_days_str}}</p>
+                             <p>Taxa de administração: {{item.fees.administration_fee}}</p>
+                           </td>
+                          
+                          
                         </tr>
                         
                       </tbody>
               
-                  </table>
-                
+                </table>
+               
             </div>
           </div>
         </div>
@@ -180,45 +219,47 @@
           <div class="row">
         <div class="columns">
             <div class="callout" >
-                  <p @click="rendaFixaShow=!rendaFixaShow" > Renda fixa</p>
+                  <p @click="rendaFixaShow=!rendaFixaShow"> <b>Renda fixa</b></p>
                    
-                      <div class="checkbox" v-for="(itemCheck, indice) in resultBusca" :key="indice" v-show="rendaFixaShow">
-                        <label for="show-password" v-if="itemCheck.specification.fund_main_strategy.fund_macro_strategy === 1">
-                          <input type="checkbox" v-model="check" :value="itemCheck.specification.fund_main_strategy.name" v-on:input="busca = $event.target.value">     
-                                             
-                          {{ itemCheck.specification.fund_main_strategy.name }}
-                         
+                      <div class="checkbox" v-show="rendaFixaShow">
+
+                        <label class="show-check-box">
+                          <input type="checkbox" v-model="check" value="Indexado Soberano"  @change="filtroCheck($event.target.value)">                                             
+                          <span><b>Indexado Soberano</b></span>    
+                          <span class="ch"></span>                       
+                        </label>
+
+                        <label class="show-check-box">
+                          <input type="checkbox" v-model="check" value="Renda Fixa"  @change="filtroCheck($event.target.value)">                                             
+                          <span><b>Renda Fixa</b></span>   
+                          <span class="ch"></span>                        
+                        </label>
+
+                         <label class="show-check-box">
+                          <input type="checkbox" v-model="check" value="Renda Fixa Crédito Privado"  @change="filtroCheck($event.target.value)">                                             
+                          <span><b>Renda Fixa Crédito Privado</b></span> 
+                          <span class="ch"></span>                           
+                        </label>
+
+                        <label class="show-check-box">
+                          <input type="checkbox" v-model="check" value="Crédito Privado High Yield"  @change="filtroCheck($event.target.value)">                                             
+                          <span><b>Crédito Privado High Yield</b></span> 
+                          <span class="ch"></span>                          
+                        </label>
+
+                         <label class="show-check-box">
+                          <input type="checkbox" v-model="check" value="Renda Fixa Inflação Soberano"  @change="filtroCheck($event.target.value)">                                             
+                          <span><b>Renda Fixa Inflação Soberano</b></span>    
+                          <span class="ch"></span>                        
+                        </label>
+
+                        <label class="show-check-box">
+                          <input type="checkbox" v-model="check" value="Inflação Crédito Privado"  @change="filtroCheck($event.target.value)">                                             
+                          <span><b>Inflação Crédito Privado</b></span>    
+                          <span class="ch"></span>                       
                         </label>
                       
                       </div>
-
-                </div>
-
-                <div class="callout" >
-                  <p @click="estrategiaShow=!estrategiaShow" >Estratégias diferenciadas</p>
-                   
-                      <div class="checkbox" v-for="(itemCheck, indice) in resultBusca" :key="indice" v-show="estrategiaShow">
-                        <label for="show-password" v-if="itemCheck.specification.fund_main_strategy.fund_macro_strategy === 2">
-                          <input type="checkbox" v-model="check" :value="itemCheck.specification.fund_main_strategy.name">                          
-                          {{ itemCheck.specification.fund_main_strategy.name }}
-                         
-                        </label>
-                        
-                      </div>
-                
-                </div>
-
-                <div class="callout" >
-                  <p @click="rendaVariavelShow=!rendaVariavelShow" >Renda variável</p>
-                   
-                      <div class="checkbox" v-for="(itemCheck, indice) in resultBusca" :key="indice" v-show="rendaVariavelShow">
-                        <label for="show-password" v-if="itemCheck.specification.fund_main_strategy.fund_macro_strategy === 3">
-                          <input type="checkbox" v-model="check" :value="itemCheck.specification.fund_main_strategy.name">                          
-                          {{ itemCheck.specification.fund_main_strategy.name }}
-                         
-                        </label>
-                       
-                      </div>               
 
                 </div>
 
@@ -228,26 +269,25 @@
  
         <div class="large-4 cell">
           <div class="callout">
-            <p>LEGENDA</p>
-            <ul>
-              <li><i class="fi-star molde"></i> Fundo para investidor qualificado</li>
-              <li><i class="fi-check molde"></i> Você já investe neste fundo</li>
-              <li><i class="fi-info"></i>  Entenda o resgate deste fundo</li>
-              <li><i class="fi-prohibited"></i> Fundo fechado para aplicação</li>
-              <li><i class="fi-info"></i> Aplicar neste fundo</li>
-            </ul>
+            <p class="legendas">LEGENDA</p>
+            
+              <p class="legendas"><i class="fi-star molde"></i> Fundo para investidor quapficado</p>
+              <p class="legendas"><i class="fi-check molde"></i> Você já investe neste fundo</p>
+              <p class="legendas"><i class="fi-info"></i>  Entenda o resgate deste fundo</p>
+              <p class="legendas"><i class="fi-prohibited"></i> Fundo fechado para appcação</p>
+              <p class="legendas"><img src="../assets/img/back.png" width="20px" style="transform: rotate(90deg);" /> Aplicar neste fundo</p>
+            
           </div>
         </div>  
 
       </div>
 
-    </div>
-   
-           
+    </div>  
   </div>
 </template>
 
 <script>
+
 import '../assets/js/app.js';
 
 
@@ -257,23 +297,36 @@ export default {
   data () {
     
         return {
-            fund_detail_full  : [],
+            fund_detail_full  : [],            
             busca             : '',
+            filtro            : '',
+            risco             : '',
             itemCheck         : '',
-            minimumAp         : 0,
-            risk              : 0,
-            qtdDia            : 0,
+            minimumAp         : 25000,
+            risk              : 12,
+            qtdDia            : 270,
+            prazo             : '',
             check             : [],
             rendaFixaShow     : false,
             estrategiaShow    : false,
             rendaVariavelShow : false,
-            events            : []
-                      
+            detalheShow       : false,
+            format            : "DD/MM/YYYY",
+            datasets: [
+        {
+            data: [30, 30, 40],
+            backgroundColor: ["#f36e60", "#ffdb3b", "#185190"],
+            hoverBackgroundColor: ["#fbd2cd", "#fef5c9", "#d1e3f7"]
         }
-        
+      ],
+            labels: ['Diário', 'Mensal', 'Anual'],
+            option: {}
+            
+    }
+                      
+              
     },
 
-    
   created() {
         
        this.$http.get("https://s3.amazonaws.com/orama-media/json/fund_detail_full.json?limit=1000&offset=0&serializer=fund_detail_full")
@@ -285,36 +338,129 @@ export default {
     computed: {
 
         resultBusca() {
-
-            if(this.busca) {
+          
+            if(this.busca) {                
                 let exp = new RegExp(this.busca.trim(), 'i');
-                return this.fund_detail_full.filter(fund_detail_full => exp.test(fund_detail_full.full_name));
-            } else {
+                return this.fund_detail_full.filter(fund_detail_full => 
+                exp.test(fund_detail_full.full_name));
+
+            } else if(this.filtro){
+                let fil = new RegExp(this.filtro.trim(), 'i');
+                return this.fund_detail_full.filter(fund_detail_full => 
+                fil.test(fund_detail_full.operability.minimum_initial_application_amount));
+
+            } else if(this.risco){                  
+              let exp = new RegExp(this.risco.trim(), 'i');
+                return this.fund_detail_full.filter(fund_detail_full => 
+                exp.test(fund_detail_full.specification.fund_risk_profile.score_range_order));
+
+            } else if(this.prazo){
+              let exp = new RegExp(this.prazo.trim(), 'i');
+                return this.fund_detail_full.filter(fund_detail_full => 
+                exp.test(fund_detail_full.operability.retrieval_quotation_days_str));
+            }else{
                 return this.fund_detail_full;
-            }            
+
+            }           
+
+        },
+    },
+
+    methods: {
+      filtroCheck(valor) {     
+        for (let i = 0; i < this.check.length; i++){
+
+          console.log(this.check)
+
+          if (this.check === this.check ) {
+              this.busca = valor;
+          } else{
+             this.busca = "";
+          }              
+        }
 
         },
 
-        filtroBusca() {
+      filtroValorMinimo(valor) {
+          
+          for (let i = 0; i <= 25000; i++) {
+            return this.filtro = valor;
+            
+          }          
+                 
+      },
 
-            if(this.filtro) {
-                let exp = new RegExp(this.filtro);
-                return this.fund_detail_full.filter(fund_detail_full => exp.test(fund_detail_full.full_name));
-            } else {
-                return this.fund_detail_full;
-            }            
+      filtroPrazo(valor) {
+
+        for(let i = 0; i <= 270; i++) {
+          return this.prazo = valor;
+        }
+
+      },
+
+
+      filtroRisk(valor) {     
+        
+        switch (this.risk) {
+          case "1":             
+           this.risco = valor;
+           break;
+          
+          case "2":            
+           this.risco = valor;
+           break;
+          
+          case "3":            
+           this.risco = valor;
+           break;
+
+          case "4":            
+           this.risco = valor;
+           break;
+
+          case "5":            
+           this.risco = valor;
+           break;
+
+          case "6":            
+           this.risco = valor;
+           break;
+
+          case "7":            
+           this.risco = valor;
+           break;
+
+          case "8":            
+           this.risco = valor;
+           break;
+
+          case "9":            
+           this.risco = valor;
+           break;
+
+          case "10":            
+           this.risco = valor;
+           break;
+
+          case "11":            
+           this.risco = valor;
+           break;
+
+          case "12":            
+           this.risco = valor;
+           break;
+        
+          default:
+            this.risco = valor;
+        }
 
         },
-    
     },
 
 }
+
 </script>
 
-<style scoped>
-
-  tbody th, tbody td {
-    padding: 0.5rem 0;
-}  
-
+<style lang="scss" scoped>
+  @import '../assets/css/app.scss';
 </style>
