@@ -311,7 +311,6 @@ export default {
             estrategiaShow    : false,
             rendaVariavelShow : false,
             detalheShow       : false,
-            format            : "DD/MM/YYYY",
             datasets: [
         {
             data: [30, 30, 40],
@@ -322,8 +321,7 @@ export default {
             labels: ['Diário', 'Mensal', 'Anual'],
             option: {}
             
-    }
-                      
+    }                      
               
     },
 
