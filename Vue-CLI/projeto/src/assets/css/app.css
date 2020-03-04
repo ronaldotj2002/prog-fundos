@@ -111,6 +111,9 @@ ul li {
   font-size: 0.8em;
   color: #999;
 }
+.disabled{
+  color: #999;
+}
 
 .molde{
   background: #ccc;

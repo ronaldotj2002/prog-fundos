@@ -163,7 +163,8 @@
                           <td class="border-risk_10" v-if="item.specification.fund_risk_profile.score_range_order === 10"></td>
                           <td class="border-risk_11" v-if="item.specification.fund_risk_profile.score_range_order === 11"></td>
                           <td class="border-risk_12" v-if="item.specification.fund_risk_profile.score_range_order === 12"></td>
-                          <td>                            
+
+                          <td v-if="item.is_closed_to_capture === true">                            
                                 {{item.full_name}} 
                                 <img src="../assets/img/star.png" data-tooltip tabindex="1" title="Fundo para investidor qualificado" data-position="top" data-alignment="center" /> 
                                 <img src="../assets/img/checked.png" data-tooltip tabindex="1" title="Vovê já Investe neste fundo" data-position="top" data-alignment="center" style="margin-left:5px"/>
@@ -171,15 +172,38 @@
                                 <br> 
                                 <span class="sub-text">{{item.specification.fund_macro_strategy.name}} | {{item.specification.fund_class}}</span>
                           </td>
-                          <td class="text-center" width="80">{{item.quota_date.replace(/(\d{4})-(\d{2})-(\d{2})/, '$3/$2/$1') }}</td>
-                          <td class="text-center">{{item.profitabilities.month}}</td>
-                          <td class="text-center">{{item.profitabilities.year}}</td>
-                          <td class="text-center">{{item.profitabilities.m12}}</td>
-                          <td class="text-center">{{item.operability.minimum_initial_application_amount}}</td>
-                          <td class="text-center">{{item.operability.retrieval_quotation_days_str}}</td>
-                          <td class="text-center" data-tooltip tabindex="1" title="Aplicar neste fundo" data-position="top" data-alignment="center"><img src="../assets/img/back.png" width="20px" /></td>  
-                                               
+                          <td v-else class="disabled">                            
+                                {{item.full_name}} 
+                                <img src="../assets/img/star.png" data-tooltip tabindex="1" title="Fundo para investidor qualificado" data-position="top" data-alignment="center" /> 
+                                <img src="../assets/img/checked.png" data-tooltip tabindex="1" title="Vovê já Investe neste fundo" data-position="top" data-alignment="center" style="margin-left:5px"/>
+                                
+                                <br> 
+                                <span class="sub-text">{{item.specification.fund_macro_strategy.name}} | {{item.specification.fund_class}}</span>
+                          </td>
+
+                          <td v-if="item.is_closed_to_capture === true" class="text-center" width="80">{{item.quota_date.replace(/(\d{4})-(\d{2})-(\d{2})/, '$3/$2/$1') }}</td>
+                          <td v-else class="text-center disabled" width="80">{{item.quota_date.replace(/(\d{4})-(\d{2})-(\d{2})/, '$3/$2/$1') }}</td>
+
+                          <td v-if="item.is_closed_to_capture === true" class="text-center">{{item.profitabilities.month}}</td>
+                          <td v-else class="text-center disabled">{{item.profitabilities.month}}</td>
+
+                          <td v-if="item.is_closed_to_capture === true" class="text-center">{{item.profitabilities.year}}</td>
+                          <td v-else class="text-center disabled">{{item.profitabilities.year}}</td>
+
+                          <td v-if="item.is_closed_to_capture === true" class="text-center">{{item.profitabilities.m12}}</td>
+                          <td v-else class="text-center disabled">{{item.profitabilities.m12}}</td>
+
+                          <td v-if="item.is_closed_to_capture === true" class="text-center">{{item.operability.minimum_initial_application_amount.replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}}</td>
+                          <td v-else class="text-center disabled">{{item.operability.minimum_initial_application_amount.replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}}</td>
+
+                          <td v-if="item.is_closed_to_capture === true" class="text-center">{{item.operability.retrieval_quotation_days_str}}</td>
+                          <td v-else class="text-center disabled">{{item.operability.retrieval_quotation_days_str}}</td>
+                          
+                          <td v-if="item.is_closed_to_capture === true" class="text-center" data-tooltip tabindex="1" title="Aplicar neste fundo" data-position="top" data-alignment="center"><img src="../assets/img/back.png" width="20px" /></td>  
+                          <td v-else class="text-center" data-tooltip tabindex="1" title="Aplicar neste fundo" data-position="top" data-alignment="center"><img src="../assets/img/disabled.png" width="20px" /></td>                     
+                        
                         </tr>
+                        
 
                         <tr v-show="detalheShow == indice" width="100%" style=" padding:30px 0">
                        
@@ -291,7 +315,6 @@
 
 import '../assets/js/app.js';
 
-
 export default {
   name: 'Home',  
 
@@ -366,6 +389,7 @@ export default {
     },
 
     methods: {
+      
       filtroCheck(valor) {     
         for (let i = 0; i < this.check.length; i++){
 
@@ -453,6 +477,7 @@ export default {
         }
 
         },
+       
     },
 
 }
