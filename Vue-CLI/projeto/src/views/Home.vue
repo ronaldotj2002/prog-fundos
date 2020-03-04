@@ -165,18 +165,19 @@
                           <td class="border-risk_12" v-if="item.specification.fund_risk_profile.score_range_order === 12"></td>
                           <td>                            
                                 {{item.full_name}} 
-                                <i class="fi-star molde" data-tooltip tabindex="1" title="Fundo para investidor qualificado" data-position="top" data-alignment="center"></i> 
-                                <i class="fi-check molde" data-tooltip tabindex="1" title="Vovê já Investe neste fundo" data-position="top" data-alignment="center" style="margin-left:5px"></i> 
+                                <img src="../assets/img/star.png" data-tooltip tabindex="1" title="Fundo para investidor qualificado" data-position="top" data-alignment="center" /> 
+                                <img src="../assets/img/checked.png" data-tooltip tabindex="1" title="Vovê já Investe neste fundo" data-position="top" data-alignment="center" style="margin-left:5px"/>
+                                
                                 <br> 
                                 <span class="sub-text">{{item.specification.fund_macro_strategy.name}} | {{item.specification.fund_class}}</span>
                           </td>
-                          <td width="80">{{item.quota_date.replace(/(\d{4})-(\d{2})-(\d{2})/, '$3/$2/$1') }}</td>
-                          <td>{{item.profitabilities.month}}</td>
-                          <td>{{item.profitabilities.year}}</td>
-                          <td>{{item.profitabilities.m12}}</td>
-                          <td>{{item.operability.minimum_initial_application_amount}}</td>
-                          <td>{{item.operability.retrieval_quotation_days_str}}</td>
-                          <td data-tooltip tabindex="1" title="Aplicar neste fundo" data-position="top" data-alignment="center"><img src="../assets/img/back.png" width="20px" style="transform: rotate(90deg);" /></td>  
+                          <td class="text-center" width="80">{{item.quota_date.replace(/(\d{4})-(\d{2})-(\d{2})/, '$3/$2/$1') }}</td>
+                          <td class="text-center">{{item.profitabilities.month}}</td>
+                          <td class="text-center">{{item.profitabilities.year}}</td>
+                          <td class="text-center">{{item.profitabilities.m12}}</td>
+                          <td class="text-center">{{item.operability.minimum_initial_application_amount}}</td>
+                          <td class="text-center">{{item.operability.retrieval_quotation_days_str}}</td>
+                          <td class="text-center" data-tooltip tabindex="1" title="Aplicar neste fundo" data-position="top" data-alignment="center"><img src="../assets/img/back.png" width="20px" /></td>  
                                                
                         </tr>
 
@@ -271,11 +272,11 @@
           <div class="callout">
             <p class="legendas">LEGENDA</p>
             
-              <p class="legendas"><i class="fi-star molde"></i> Fundo para investidor quapficado</p>
-              <p class="legendas"><i class="fi-check molde"></i> Você já investe neste fundo</p>
-              <p class="legendas"><i class="fi-info"></i>  Entenda o resgate deste fundo</p>
-              <p class="legendas"><i class="fi-prohibited"></i> Fundo fechado para appcação</p>
-              <p class="legendas"><img src="../assets/img/back.png" width="20px" style="transform: rotate(90deg);" /> Aplicar neste fundo</p>
+              <p class="legendas"><img src="../assets/img/star.png" /> <span>Fundo para investidor quapficado</span></p>
+              <p class="legendas"><img src="../assets/img/checked.png" /> <span>Você já investe neste fundo</span></p>
+              <p class="legendas"><img src="../assets/img/info.png" /> <span>Entenda o resgate deste fundo</span></p>
+              <p class="legendas"><img src="../assets/img/disabled.png" /> <span>Fundo fechado para appcação</span></p>
+              <p class="legendas"><img src="../assets/img/open-legends.png" /> <span>Aplicar neste fundo</span></p>
             
           </div>
         </div>  
@@ -320,7 +321,7 @@ export default {
       ],
             labels: ['Diário', 'Mensal', 'Anual'],
             option: {}
-            
+            // this.fund_detail_full.profitabilities.month
     }                      
               
     },
@@ -460,4 +461,11 @@ export default {
 
 <style lang="scss" scoped>
   @import '../assets/css/app.scss';
+
+   @media screen and (max-width: 40em) {
+  
+  .marg {
+    margin-left: 14.7px;
+}
+}
 </style>
