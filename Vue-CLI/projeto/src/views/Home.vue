@@ -205,7 +205,33 @@
                         </tr>
                         
 
-                        <tr v-show="detalheShow == indice" width="100%" style=" padding:30px 0">
+                        <tr v-show="detalheShow == indice" width="100%" v-if="item.is_closed_to_capture === true" style=" padding:30px 0">
+                       
+                           <td colspan="6">
+                             
+                               <div class="card-img-bottom">
+                                <chartjs-doughnut
+                                  :bind="true"                                  
+                                  :datasets="datasets"
+                                  :labels="labels"
+                                  :cotizacao="item.operability.application_quotation_days_str"
+                                  :option="option"
+                                />
+                                                          
+                              </div>
+                             
+                           </td>
+
+                           <td colspan="3">
+                             <p>Cotização da aplicação: {{item.operability.application_quotation_days_str}}</p>
+                             <p>Cotização do resgate: {{item.operability.retrieval_quotation_days_str}}</p>
+                             <p>Liquidação do resgate: {{item.operability.retrieval_liquidation_days_str}}</p>
+                             <p>Taxa de administração: {{item.fees.administration_fee}}</p>
+                           </td>
+                          
+                          
+                        </tr>
+                        <tr v-show="!detalheShow == indice" width="100%" v-else style=" padding:30px 0">
                        
                            <td colspan="6">
                              
